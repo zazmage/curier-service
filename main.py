@@ -6,11 +6,11 @@ from scripts.command_line import *
 
 if __name__ == "__main__":
     app_running = True
+    orders = Orders_list()
+    packages = Packages_list()
+    offers = Offers_list()
     while app_running:
         welcome_menu()
-        orders = Orders_list()
-        packages = Packages_list()
-        offers = Offers_list()
         selection = input_selection()
         if selection == 1:
             show_orders(orders)

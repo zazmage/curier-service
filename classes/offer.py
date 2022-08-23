@@ -13,8 +13,14 @@ class Offer:
     def get_discount(self):
         return self.__discount
 
-    def get_distance_in_km(self):
-        return self.__distance_in_km
+    def get_min_distance_in_km(self):
+        return int(self.__distance_in_km.get("min"))
 
-    def get_weight_in_kg(self):
-        return self.__weight_in_kg
+    def get_max_distance_in_km(self):
+        return int(self.__distance_in_km.get("max"))
+
+    def get_min_weight_in_kg(self):
+        return int(self.__weight_in_kg.get("min"))
+
+    def get_max_weight_in_kg(self):
+        return int(self.__weight_in_kg.get("max"))

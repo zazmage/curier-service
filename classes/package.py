@@ -8,7 +8,7 @@ class Package:
         return self.__pkg_id
 
     def get_base_delivery_cost(self):
-        return self.__base_delivery_cost
+        return int(self.__base_delivery_cost)
 
     def get_pkg_weight_in_kg(self):
-        return self.__pkg_weight_in_kg
+        return int(self.__pkg_weight_in_kg)
