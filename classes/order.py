@@ -1,12 +1,13 @@
-class order:
+class Order:
     def __init__(
         self,
         packages,
+        no_of_packges,
         distance_in_km,
         offer,
     ) -> None:
         self.__packages = packages
-        self.__no_of_packges = len(packages)
+        self.__no_of_packges = no_of_packges
         self.__distance_in_km = distance_in_km
         self.__offer = offer
 

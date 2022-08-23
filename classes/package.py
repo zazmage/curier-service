@@ -1,4 +1,4 @@
-class package:
+class Package:
     def __init__(self, pkg_id, base_delivery_cost, pkg_weight_in_kg):
         self.__pkg_id = pkg_id
         self.__base_delivery_cost = base_delivery_cost

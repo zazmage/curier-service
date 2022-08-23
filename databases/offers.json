@@ -1,0 +1,38 @@
+[
+  {
+    "offer_code ": "OFR001",
+    "discount": 10,
+    "distance_in_km": {
+      "min": 0,
+      "max": 200
+    },
+    "weight_in_kg": {
+      "min": 70,
+      "max": 200
+    }
+  },
+  {
+    "offer_code ": "OFR002",
+    "discount": 5,
+    "distance_in_km": {
+      "min": 50,
+      "max": 150
+    },
+    "weight_in_kg": {
+      "min": 100,
+      "max": 250
+    }
+  },
+  {
+    "offer_code ": "OFR003",
+    "discount": 100,
+    "distance_in_km": {
+      "min": 50,
+      "max": 250
+    },
+    "weight_in_kg": {
+      "min": 10,
+      "max": 150
+    }
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "packages ": ["PKG1"],
+    "no_of_packges": 5,
+    "distance_in_km": 5,
+    "offer_code": "OFR001"
+  },
+  {
+    "packages ": ["PKG2"],
+    "no_of_packges": 15,
+    "distance_in_km": 5,
+    "offer_code": "OFR002"
+  },
+  {
+    "packages ": ["PKG3"],
+    "no_of_packges": 10,
+    "distance_in_km": 100,
+    "offer_code": "OFR003"
+  }
+]

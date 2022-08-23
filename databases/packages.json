@@ -1,0 +1,17 @@
+[
+  {
+    "pkg_id ": "PKG1",
+    "base_delivery_cost": 100,
+    "pkg_weight_in_kg": 5
+  },
+  {
+    "pkg_id ": "PKG2",
+    "base_delivery_cost": 100,
+    "pkg_weight_in_kg": 15
+  },
+  {
+    "pkg_id ": "PKG3",
+    "base_delivery_cost": 300,
+    "pkg_weight_in_kg": 10
+  }
+]
