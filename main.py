@@ -1,8 +1,7 @@
 from classes.offers_list import Offers_list
 from classes.orders_list import Orders_list
 from classes.packages_list import Packages_list
-from scripts.command_line import *
-
+from commands.command_line import *
 
 if __name__ == "__main__":
     app_running = True

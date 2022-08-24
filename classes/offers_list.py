@@ -9,7 +9,7 @@ class Offers_list:
         for i in offers:
             self.__offers.append(
                 Offer(
-                    i.get("offer_Code"),
+                    i.get("offer_code"),
                     i.get("discount"),
                     i.get("distance_in_km"),
                     i.get("weight_in_kg"),

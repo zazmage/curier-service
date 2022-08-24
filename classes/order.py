@@ -1,3 +1,5 @@
+from classes.offers_list import Offers_list
+from classes.packages_list import Packages_list
 from services.offers_requests import load_offers
 from services.orders_requests import load_orders
 from services.packages_requests import load_packages
@@ -6,38 +8,54 @@ from services.packages_requests import load_packages
 class Order:
     def __init__(
         self,
-        package,
+        pkg_id,
         no_of_packges,
         distance_in_km,
-        offer,
+        offer_code,
     ) -> None:
-        self.__package = package
+        self.__pkg_id = pkg_id
         self.__no_of_packges = no_of_packges
         self.__distance_in_km = distance_in_km
-        self.__offer = offer
+        self.__offer_code = offer_code
 
     def get_order_dict(self):
         return {
-            "pkg_id": self.__package,
+            "pkg_id": self.__pkg_id,
             "no_of_packges": self.__no_of_packges,
             "distance_in_km": self.__distance_in_km,
-            "offer_code": self.__offer,
+            "offer_code": self.__offer_code,
         }
 
     def get_package(self):
-        packages = load_packages()
+        packages = Packages_list()
         return next(
-            (i for i in packages if i.get("pkg_id") == self.__package), None
+            (
+                i
+                for i in packages.get_packages()
+                if i.get_pkg_id() == self.__pkg_id
+            ),
+            None,
         )
+
+    def get_pkg_id(self):
+        return self.__pkg_id
 
     def get_no_of_packges(self):
-        return self.__no_of_packges
+        return int(self.__no_of_packges)
 
     def get_distance_in_km(self):
-        return self.__distance_in_km
+        return int(self.__distance_in_km)
 
     def get_offer(self):
-        offers = load_offers()
+        offers = Offers_list()
         return next(
-            (i for i in offers if i.get("pkg_id") == self.__offer), None
+            (
+                i
+                for i in offers.get_offers()
+                if i.get_offer_code() == self.__offer_code
+            ),
+            None,
         )
+
+    def get_offer_code(self):
+        return self.__offer_code

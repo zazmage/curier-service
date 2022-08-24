@@ -11,7 +11,7 @@ class Offer:
         return self.__offer_code
 
     def get_discount(self):
-        return self.__discount
+        return int(self.__discount)
 
     def get_min_distance_in_km(self):
         return int(self.__distance_in_km.get("min"))

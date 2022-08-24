@@ -16,17 +16,5 @@
     "no_of_packges": 10,
     "distance_in_km": 100,
     "offer_code": "OFR003"
-  },
-  {
-    "pkg_id": "PKG3",
-    "no_of_packges": "3",
-    "distance_in_km": "100",
-    "offer_code": "OFR003"
-  },
-  {
-    "pkg_id": "PKG3",
-    "no_of_packges": "3",
-    "distance_in_km": "100",
-    "offer_code": "OFR003"
   }
 ]

@@ -11,15 +11,18 @@ class Invoice:
         min_offer_weight = order.get_offer().get_min_weight_in_kg()
         max_offer_weight = order.get_offer().get_max_weight_in_kg()
 
+        discount_percentage = 0
         if min_offer_distance <= order_distance <= max_offer_distance:
             if min_offer_weight <= order_weight <= max_offer_weight:
-                self.__discount = order.get_offer().get_discount()
+                discount_percentage = order.get_offer().get_discount() / 100
 
         base_delivery_cost = order.get_package().get_base_delivery_cost()
 
         self.__delivery_cost = (
             base_delivery_cost + (order_weight * 10) + (order_distance * 5)
         )
+
+        self.__discount = self.__delivery_cost * discount_percentage
 
         self.__total_cost = self.__delivery_cost - self.__discount
 

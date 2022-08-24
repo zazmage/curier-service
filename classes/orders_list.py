@@ -1,7 +1,6 @@
 from classes.invoice import Invoice
-from classes.offer import Offer
 from classes.order import Order
-from scripts.command_line import show_invoice
+from commands.command_line import show_invoice
 from services.orders_requests import load_orders, save_order
 
 
@@ -29,6 +28,6 @@ class Orders_list:
         offer = input("Offer ID: ")
         order = Order(package, no_of_packges, distance_in_km, offer)
         self.__orders.append(order.get_order_dict())
-        save_order(order.get_order_dict())
+        # save_order(order.get_order_dict())
         invoice = Invoice(order)
         show_invoice(invoice)
