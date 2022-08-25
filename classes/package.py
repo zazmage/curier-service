@@ -4,6 +4,13 @@ class Package:
         self.__base_delivery_cost = base_delivery_cost
         self.__pkg_weight_in_kg = pkg_weight_in_kg
 
+    def get_package_dict(self):
+        return {
+            "pkg_id": self.__pkg_id,
+            "base_delivery_cost": self.__base_delivery_cost,
+            "pkg_weight_in_kg": self.__pkg_weight_in_kg,
+        }
+
     def get_pkg_id(self):
         return self.__pkg_id
 

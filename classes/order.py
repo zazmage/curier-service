@@ -5,57 +5,36 @@ from services.orders_requests import load_orders
 from services.packages_requests import load_packages
 
 
+def new_order_code(orders):
+    orders = load_orders()
+    orders = [i.get("order_code") for i in orders]
+    max_order = 0
+    for i in orders:
+        order_code_number = int("".join([j for j in [*i] if j.isnumeric()]))
+        if max_order < order_code_number:
+            max_order = order_code_number
+
+    return f"ORD{max_order + 1}"
+
+
 class Order:
-    def __init__(
-        self,
-        pkg_id,
-        no_of_packges,
-        distance_in_km,
-        offer_code,
-    ) -> None:
-        self.__pkg_id = pkg_id
+    def __init__(self, no_of_packges, delivery_info) -> None:
+        self.__order_code = new_order_code()
         self.__no_of_packges = no_of_packges
-        self.__distance_in_km = distance_in_km
-        self.__offer_code = offer_code
+        self.__delivery_info = delivery_info
 
     def get_order_dict(self):
         return {
-            "pkg_id": self.__pkg_id,
+            "order_code": self.__order_code,
             "no_of_packges": self.__no_of_packges,
-            "distance_in_km": self.__distance_in_km,
-            "offer_code": self.__offer_code,
+            "delivery_info": self.__delivery_info.get_delivery_info_dict(),
         }
 
-    def get_package(self):
-        packages = Packages_list()
-        return next(
-            (
-                i
-                for i in packages.get_packages()
-                if i.get_pkg_id() == self.__pkg_id
-            ),
-            None,
-        )
-
-    def get_pkg_id(self):
-        return self.__pkg_id
+    def get_order_code(self):
+        return self.__order_code
 
     def get_no_of_packges(self):
         return int(self.__no_of_packges)
 
-    def get_distance_in_km(self):
-        return int(self.__distance_in_km)
-
-    def get_offer(self):
-        offers = Offers_list()
-        return next(
-            (
-                i
-                for i in offers.get_offers()
-                if i.get_offer_code() == self.__offer_code
-            ),
-            None,
-        )
-
-    def get_offer_code(self):
-        return self.__offer_code
+    def get_delivery_info(self):
+        return self.__delivery_info

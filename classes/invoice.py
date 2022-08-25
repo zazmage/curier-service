@@ -1,9 +1,10 @@
 class Invoice:
     def __init__(self, order):
         self.__order = order
+
         self.__discount = 0
 
-        order_distance = order.get_distance_in_km()
+        order_distance = order.get_delivery_info().get_distance_in_km()
         min_offer_distance = order.get_offer().get_min_distance_in_km()
         max_offer_distance = order.get_offer().get_max_distance_in_km()
 

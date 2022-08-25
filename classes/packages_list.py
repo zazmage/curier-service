@@ -1,19 +1,15 @@
-from classes.package import Package
 from services.packages_requests import load_packages
 
 
 class Packages_list:
     def __init__(self):
-        packages = load_packages()
-        self.__packages = []
-        for i in packages:
-            self.__packages.append(
-                Package(
-                    i.get("pkg_id"),
-                    i.get("base_delivery_cost"),
-                    i.get("pkg_weight_in_kg"),
-                )
-            )
+        self.__packages = load_packages()
 
     def get_packages(self):
         return self.__packages
+
+    def find_package(self, pkg_id):
+        return next(
+            (i for i in self.__packages if i.get_pkg_id() == pkg_id),
+            None,
+        )

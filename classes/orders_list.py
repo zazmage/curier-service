@@ -1,3 +1,4 @@
+from classes.delivery_info import Delivery_info
 from classes.invoice import Invoice
 from classes.order import Order
 from commands.command_line import show_invoice
@@ -6,27 +7,24 @@ from services.orders_requests import load_orders, save_order
 
 class Orders_list:
     def __init__(self) -> None:
-        orders = load_orders()
-        self.__orders = []
-        for i in orders:
-            self.__orders.append(
-                Order(
-                    i.get("pkg_id"),
-                    i.get("no_of_packges"),
-                    i.get("distance_in_km"),
-                    i.get("offer_code"),
-                )
-            )
+        self.__orders = load_orders()
 
     def get_orders(self):
         return self.__orders
 
     def create_order(self):
-        package = input("Package ID: ")
         no_of_packges = input("Number of packages: ")
-        distance_in_km = input("Distance in kilometers: ")
-        offer = input("Offer ID: ")
-        order = Order(package, no_of_packges, distance_in_km, offer)
+        while no_of_packges.isdigit():
+            no_of_packges = input("Please insert a positive integer number: ")
+        delivery_info = []
+        for i in range(1, no_of_packges + 1):
+            pkg_id = input(f"Package {i} ID: ")
+            distance_in_km = input("Package {i} distance in kilometers: ")
+            offer_code = input("Package {i} Offer ID: ")
+            delivery_info.append(
+                Delivery_info(pkg_id, distance_in_km, offer_code)
+            )
+        order = Order(no_of_packges, delivery_info)
         self.__orders.append(order.get_order_dict())
         # save_order(order.get_order_dict())
         invoice = Invoice(order)
