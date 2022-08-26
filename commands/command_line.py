@@ -11,6 +11,7 @@ def welcome_menu():
     print("2) Show packages")
     print("3) Show offers")
     print("4) Create order")
+    print("5) Create invoice")
     print("0) Exit")
 
 
@@ -30,3 +31,11 @@ def expect_input():
 
 def valid_option():
     print("Please select a valid option...")
+
+
+def separator():
+    print("\n" + "#" * 20 + "\n")
+
+
+def mid_sep():
+    print("-" * 20 + "\n" + "-" * 20)

@@ -1,10 +1,15 @@
-from commands.command_line import expect_input, guarantee_int
+from commands.command_line import (
+    expect_input,
+    guarantee_int,
+    mid_sep,
+    separator,
+)
 from classes.delivery_info import Delivery_info
 from services.orders_requests import save_order
 
 
 def show_orders(orders):
-    print("\n" + "#" * 20 + "\n")
+    separator()
     for i in orders:
         print("Order code: ", i.get_order_code())
         print("Number of packages: ", i.get_no_of_packges())
@@ -19,9 +24,9 @@ def show_orders(orders):
                 j.get_distance_in_km(),
             )
             print("---> Offer code: ", j.get_offer().get_offer_code())
-            print("-" * 20)
-        print("\n" + "-" * 20 + "\n" + "-" * 20 + "\n")
-    print("#" * 20 + "\n")
+            print("-")
+        mid_sep()
+    separator()
     expect_input()
 
 

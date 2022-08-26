@@ -1,8 +1,8 @@
-from commands.command_line import expect_input
+from commands.command_line import expect_input, mid_sep, separator
 
 
 def show_offers(offers):
-    print("\n" + "#" * 20 + "\n")
+    separator()
     for i in offers:
         print("Offer code: ", i.get_offer_code())
         print("Discount: ", i.get_discount())
@@ -10,6 +10,6 @@ def show_offers(offers):
         print("Max distance in km: ", i.get_max_distance_in_km())
         print("Min weight in kg: ", i.get_min_weight_in_kg())
         print("Min weight in kg: ", i.get_max_weight_in_kg())
-        print("\n" + "-" * 20 + "\n" + "-" * 20 + "\n")
-    print("#" * 20 + "\n")
+        mid_sep()
+    separator()
     expect_input()

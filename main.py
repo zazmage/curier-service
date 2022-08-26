@@ -4,6 +4,7 @@ from commands.command_line import (
     valid_option,
     welcome_menu,
 )
+from commands.invoice_cmd import create_invoice
 from commands.offer_cmd import show_offers
 from commands.order_cmd import create_order, show_orders
 from commands.package_cmd import show_packages
