@@ -1,12 +1,7 @@
-from classes.offers_list import Offers_list
-from classes.packages_list import Packages_list
-from services.offers_requests import load_offers
-from services.orders_requests import load_orders
-from services.packages_requests import load_packages
+from classes.delivery_info import Delivery_info
 
 
 def new_order_code(orders):
-    orders = load_orders()
     orders = [i.get("order_code") for i in orders]
     max_order = 0
     for i in orders:
@@ -18,8 +13,8 @@ def new_order_code(orders):
 
 
 class Order:
-    def __init__(self, no_of_packges, delivery_info) -> None:
-        self.__order_code = new_order_code()
+    def __init__(self, order_code, no_of_packges, delivery_info) -> None:
+        self.__order_code = order_code
         self.__no_of_packges = no_of_packges
         self.__delivery_info = delivery_info
 
@@ -27,7 +22,9 @@ class Order:
         return {
             "order_code": self.__order_code,
             "no_of_packges": self.__no_of_packges,
-            "delivery_info": self.__delivery_info.get_delivery_info_dict(),
+            "delivery_info": [
+                i.get_delivery_info_dict() for i in self.__delivery_info
+            ],
         }
 
     def get_order_code(self):
