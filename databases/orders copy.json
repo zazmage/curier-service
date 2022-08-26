@@ -46,37 +46,5 @@
         "offer_code": "OFR003"
       }
     ]
-  },
-  {
-    "order_code": "ORD4",
-    "no_of_packges": 1,
-    "delivery_info": [
-      {
-        "pkg_id": "PKG1",
-        "distance_in_km": "100",
-        "offer_code": "OFR001"
-      }
-    ]
-  },
-  {
-    "order_code": "ORD5",
-    "no_of_packges": 3,
-    "delivery_info": [
-      {
-        "pkg_id": "PKG1",
-        "distance_in_km": "100",
-        "offer_code": "OFR001"
-      },
-      {
-        "pkg_id": "PKG2",
-        "distance_in_km": "200",
-        "offer_code": "OFR002"
-      },
-      {
-        "pkg_id": "PKG3",
-        "distance_in_km": "300",
-        "offer_code": "OFR003"
-      }
-    ]
   }
 ]

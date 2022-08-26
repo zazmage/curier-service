@@ -32,5 +32,11 @@ def create_order():
         pkg_id = input(f"Package {i} ID: ")
         distance_in_km = input(f"Package {i} distance in kilometers: ")
         offer_code = input(f"Package {i} Offer ID: ")
-        delivery_info.append(Delivery_info(pkg_id, distance_in_km, offer_code))
+        delivery_info.append(
+            {
+                "pkg_id": pkg_id,
+                "distance_in_km": distance_in_km,
+                "offer_code": offer_code,
+            }
+        )
     save_order(no_of_packges, delivery_info)

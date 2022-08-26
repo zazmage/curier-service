@@ -1,8 +1,5 @@
-from classes.delivery_info import Delivery_info
-
-
 def new_order_code(orders):
-    orders = [i.get("order_code") for i in orders]
+    orders = [i.get_order_code() for i in orders]
     max_order = 0
     for i in orders:
         order_code_number = int("".join([j for j in [*i] if j.isnumeric()]))

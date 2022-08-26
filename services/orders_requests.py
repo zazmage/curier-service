@@ -66,14 +66,18 @@ def query_order_code(order_code):
 
 
 def save_order(no_of_packges, delivery_info):
-    # try:
-    with open("./databases/orders.json", "r+") as file:
-        orders = load_orders()
-        order = Order(new_order_code(orders), no_of_packges, delivery_info)
-        orders.append(order)
-        orders_dict = [i.get_order_dict() for i in orders]
-        file.seek(0)
-        json.dump(orders_dict, file, indent=2)
-        print("Successfully created order...")
-    # except:
-    #     print("Something went wrong...")
+    try:
+        with open("./databases/orders.json", "r+") as file:
+            orders = load_orders()
+            order = {
+                "order_code": new_order_code(orders),
+                "no_of_packges": no_of_packges,
+                "delivery_info": delivery_info,
+            }
+            orders = [i.get_order_dict() for i in orders]
+            orders.append(order)
+            file.seek(0)
+            json.dump(orders, file, indent=2)
+            print("Successfully created order...")
+    except:
+        print("Something went wrong...")

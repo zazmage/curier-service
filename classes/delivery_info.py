@@ -6,9 +6,9 @@ class Delivery_info:
 
     def get_delivery_info_dict(self):
         return {
-            "package": self.__package,
+            "pkg_id": self.__package.get_pkg_id(),
             "distance_in_km": self.__distance_in_km,
-            "offer_code": self.__offer,
+            "offer_code": self.__offer.get_offer_code(),
         }
 
     def get_package(self):
