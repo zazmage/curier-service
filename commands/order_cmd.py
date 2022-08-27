@@ -4,8 +4,7 @@ from commands.command_line import (
     mid_sep,
     separator,
 )
-from classes.delivery_info import Delivery_info
-from services.orders_requests import save_order
+from services.order_requests import save_order
 
 
 def show_orders(orders):

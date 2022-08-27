@@ -78,5 +78,21 @@
         "offer_code": "OFR003"
       }
     ]
+  },
+  {
+    "order_code": "ORD6",
+    "no_of_packges": 2,
+    "delivery_info": [
+      {
+        "pkg_id": "PKG2",
+        "distance_in_km": "100",
+        "offer_code": "OFR002"
+      },
+      {
+        "pkg_id": "PKG2",
+        "distance_in_km": "200",
+        "offer_code": "OFR003"
+      }
+    ]
   }
 ]

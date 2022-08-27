@@ -1,14 +1,3 @@
-def new_order_code(orders):
-    orders = [i.get_order_code() for i in orders]
-    max_order = 0
-    for i in orders:
-        order_code_number = int("".join([j for j in [*i] if j.isnumeric()]))
-        if max_order < order_code_number:
-            max_order = order_code_number
-
-    return f"ORD{max_order + 1}"
-
-
 class Order:
     def __init__(self, order_code, no_of_packges, delivery_info) -> None:
         self.__order_code = order_code

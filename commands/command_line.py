@@ -10,8 +10,9 @@ def welcome_menu():
     print("1) Show orders")
     print("2) Show packages")
     print("3) Show offers")
-    print("4) Create order")
-    print("5) Create invoice")
+    print("4) Show invoices")
+    print("5) Create order")
+    print("6) Create invoice")
     print("0) Exit")
 
 

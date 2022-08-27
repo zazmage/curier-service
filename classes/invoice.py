@@ -1,40 +1,35 @@
 class Invoice:
-    def __init__(self, order):
-        self.__order = order
+    def __init__(
+        self, invoice_code, order_code, invoice_info, total_order_cost
+    ):
+        self.__invoice_code = invoice_code
+        self.__order_code = order_code
+        self.__invoice_info = invoice_info
+        self.__total_order_cost = total_order_cost
 
-        self.__discount = 0
+    def get_invoice_dict(self):
+        return {
+            "invoice_code": self.__invoice_code,
+            "order_code": self.__order_code,
+            "invoice_info": [
+                {
+                    "delivery_cost": i.get("delivery_cost"),
+                    "discount": i.get("discount"),
+                    "total_cost": i.get("total_cost"),
+                }
+                for i in self.__invoice_info
+            ],
+            "total_order_cost": self.__total_order_cost,
+        }
 
-        order_distance = order.get_delivery_info().get_distance_in_km()
-        min_offer_distance = order.get_offer().get_min_distance_in_km()
-        max_offer_distance = order.get_offer().get_max_distance_in_km()
+    def get_invoice_code(self):
+        return self.__invoice_code
 
-        order_weight = order.get_package().get_pkg_weight_in_kg()
-        min_offer_weight = order.get_offer().get_min_weight_in_kg()
-        max_offer_weight = order.get_offer().get_max_weight_in_kg()
+    def get_order_code(self):
+        return self.__order_code
 
-        discount_percentage = 0
-        if min_offer_distance <= order_distance <= max_offer_distance:
-            if min_offer_weight <= order_weight <= max_offer_weight:
-                discount_percentage = order.get_offer().get_discount() / 100
+    def get_invoice_info(self):
+        return self.__invoice_info
 
-        base_delivery_cost = order.get_package().get_base_delivery_cost()
-
-        self.__delivery_cost = (
-            base_delivery_cost + (order_weight * 10) + (order_distance * 5)
-        )
-
-        self.__discount = self.__delivery_cost * discount_percentage
-
-        self.__total_cost = self.__delivery_cost - self.__discount
-
-    def get_order(self):
-        return self.__order
-
-    def get_delivery_cost(self):
-        return self.__delivery_cost
-
-    def get_discount(self):
-        return self.__discount
-
-    def get_total_cost(self):
-        return self.__total_cost
+    def get_total_order_cost(self):
+        return self.__total_order_cost

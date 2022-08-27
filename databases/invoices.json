@@ -1,0 +1,48 @@
+[
+  {
+    "invoice_code": "INV1",
+    "order_code": "ORD3",
+    "invoice_info": [
+      {
+        "delivery_cost": 700,
+        "discount": 35.0,
+        "total_cost": 665.0
+      }
+    ],
+    "total_order_cost": 665.0
+  },
+  {
+    "invoice_code": "INV2",
+    "order_code": "ORD6",
+    "invoice_info": [
+      {
+        "delivery_cost": 750,
+        "discount": 0,
+        "total_cost": 750
+      },
+      {
+        "delivery_cost": 1250,
+        "discount": 62.5,
+        "total_cost": 1187.5
+      }
+    ],
+    "total_order_cost": 1937.5
+  },
+  {
+    "invoice_code": "INV3",
+    "order_code": "ORD1",
+    "invoice_info": [
+      {
+        "delivery_cost": 175,
+        "discount": 0,
+        "total_cost": 175
+      },
+      {
+        "delivery_cost": 275,
+        "discount": 0,
+        "total_cost": 275
+      }
+    ],
+    "total_order_cost": 450
+  }
+]

@@ -56,4 +56,4 @@ def query_package(pkg_id):
             )
             return package
     except:
-        return []
+        return None

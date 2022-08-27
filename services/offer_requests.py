@@ -39,4 +39,4 @@ def query_offer(offer_code):
             )
             return offer
     except:
-        return []
+        return None

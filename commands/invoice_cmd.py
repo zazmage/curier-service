@@ -1,21 +1,50 @@
 from commands.command_line import expect_input, mid_sep, separator
-from services.orders_requests import query_order_code
+from services.invoice_requests import save_invoice
+from services.order_requests import query_order
 
 
-def show_invoice(invoice):
-    print("\n" + "#" * 20 + "\n")
-    print(f"Delivery cost: {invoice.get_delivery_cost()}")
-    print(f"Discount: -{invoice.get_discount()}")
-    print(f"Total cost: {invoice.get_total_cost()}")
-    print("\n" + "#" * 20 + "\n")
+def show_invoice(invoice_info, total_order_cost):
+    separator()
+    for i in invoice_info:
+        print(f"Delivery cost: {i.get('delivery_cost')}$")
+        print(f"Discount: {i.get('discount')}$")
+        print(f"Total cost: {i.get('total_cost')}$")
+        print("-" * 20)
+    print(f"Total order cost: {total_order_cost}$")
+    separator()
+    expect_input()
+
+
+def show_invoices(invoices):
+    separator()
+    for i in invoices:
+        print(f"Invoice code: {i.get_invoice_code()}")
+        print(f"Order code: {i.get_order_code()}")
+        print("Invoice info: ")
+        for j in i.get_invoice_info():
+            print(
+                "---> Delivery cost: ",
+                j.get("delivery_cost"),
+            )
+            print(
+                "---> Discount: ",
+                j.get("discount"),
+            )
+            print(f"---> Total cost: {j.get('total_cost')}$")
+            print("-" * 20)
+        print(f"Total order cost: {i.get_total_order_cost()}$")
+        mid_sep()
+
+    separator()
     expect_input()
 
 
 def create_invoice():
     order_code = input("Order code: ")
-    order = query_order_code(order_code)
+    order = query_order(order_code)
     delivery_info = order.get_delivery_info()
-    invoice = []
+    invoice_info = []
+    total_order_cost = 0
     for delivery in delivery_info:
         delivery_distance = delivery.get_distance_in_km()
         min_offer_distance = delivery.get_offer().get_min_distance_in_km()
@@ -40,23 +69,14 @@ def create_invoice():
 
         discount = delivery_cost * discount_percentage
         total_cost = delivery_cost - discount
-        invoice.append(
+        total_order_cost += total_cost
+        invoice_info.append(
             {
                 "delivery_cost": delivery_cost,
                 "discount": discount,
                 "total_cost": total_cost,
             }
         )
-    separator()
-    total_order_cost = 0
-    for i, val in enumerate(invoice):
-        print(f"Delivery cost: {val.get('delivery_cost')}$")
-        print(f"Discount: {val.get('discount')}$")
-        print(f"Total cost: {val.get('total_cost')}$")
-        if i < len(invoice) - 1:
-            print("-" * 20)
-        total_order_cost += val.get("total_cost")
-    print("-" * 20)
-    print(f"Total order cost: {total_order_cost}$")
-    separator()
-    expect_input()
+
+    save_invoice(order_code, invoice_info, total_order_cost)
+    show_invoice(invoice_info, total_order_cost)
