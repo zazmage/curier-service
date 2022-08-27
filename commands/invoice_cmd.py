@@ -45,23 +45,21 @@ def create_invoice():
     delivery_info = order.get_delivery_info()
     invoice_info = []
     total_order_cost = 0
-    for delivery in delivery_info:
-        delivery_distance = delivery.get("distance_in_km")
-        min_offer_distance = delivery.get("offer").get_min_distance_in_km()
-        max_offer_distance = delivery.get("offer").get_max_distance_in_km()
+    for i in delivery_info:
+        delivery_distance = i.get("distance_in_km")
+        min_offer_distance = i.get("offer").get_min_distance_in_km()
+        max_offer_distance = i.get("offer").get_max_distance_in_km()
 
-        package_weight = delivery.get("package").get_pkg_weight_in_kg()
-        min_offer_weight = delivery.get("offer").get_min_weight_in_kg()
-        max_offer_weight = delivery.get("offer").get_max_weight_in_kg()
+        package_weight = i.get("package").get_pkg_weight_in_kg()
+        min_offer_weight = i.get("offer").get_min_weight_in_kg()
+        max_offer_weight = i.get("offer").get_max_weight_in_kg()
 
         discount_percentage = 0
         if min_offer_distance <= delivery_distance <= max_offer_distance:
             if min_offer_weight <= package_weight <= max_offer_weight:
-                discount_percentage = (
-                    delivery.get("offer").get_discount() / 100
-                )
+                discount_percentage = i.get("offer").get_discount() / 100
 
-        base_delivery_cost = delivery.get("package").get_base_delivery_cost()
+        base_delivery_cost = i.get("package").get_base_delivery_cost()
 
         delivery_cost = (
             base_delivery_cost

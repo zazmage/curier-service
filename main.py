@@ -4,6 +4,7 @@ from commands.command_line import (
     valid_option,
     welcome_menu,
 )
+from commands.delivery_cmd import assign_deliveries, create_delivery_queue
 from commands.invoice_cmd import create_invoice, show_invoices
 from commands.offer_cmd import show_offers
 from commands.order_cmd import create_order, show_orders
@@ -43,8 +44,7 @@ if __name__ == "__main__":
             create_invoice()
             invoices = load_invoices()
         elif selection == 8:
-            # update_vehicle_status()
-            vehicles = load_vehicles()
+            assign_deliveries(orders, vehicles)
         elif selection == 0:
             app_running = exit_application()
         else:

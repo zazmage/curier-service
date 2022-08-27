@@ -5,15 +5,15 @@ class Vehicle:
         max_speed_in_kmh,
         max_load_in_kg,
         actual_load_in_kg,
-        in_transit,
-        available_in,
+        available_in_h,
+        deliveries,
     ):
         self.__vehicle_id = vehicle_id
         self.__max_speed_in_kmh = max_speed_in_kmh
         self.__max_load_in_kg = max_load_in_kg
         self.__actual_load_in_kg = actual_load_in_kg
-        self.__in_transit = in_transit
-        self.__available_in = available_in
+        self.__available_in_h = available_in_h
+        self.__deliveries = deliveries
 
     def get_vehicle_dict(self):
         return {
@@ -21,8 +21,8 @@ class Vehicle:
             "max_speed_in_kmh": self.__max_speed_in_kmh,
             "max_load_in_kg": self.__max_load_in_kg,
             "actual_load_in_kg": self.__actual_load_in_kg,
-            "in_transit": self.__in_transit,
-            "available_in": self.__available_in,
+            "available_in_h": self.__available_in_h,
+            "deliveries": self.__deliveries,
         }
 
     def get_vehicle_id(self):
@@ -37,8 +37,19 @@ class Vehicle:
     def get_actual_load_in_kg(self):
         return self.__actual_load_in_kg
 
-    def get_in_transit(self):
-        return self.__in_transit
+    def get_available_in_h(
+        self,
+    ):
+        return self.__available_in_h
 
-    def get_available_in(self):
-        return self.__available_in
+    def get_deliveries(self):
+        return self.__deliveries
+
+    def set_actual_load_in_kg(self, actual_load_in_kg):
+        self.__actual_load_in_kg = actual_load_in_kg
+
+    def set_available_in_h(self, available_in_h):
+        self.__available_in_h = available_in_h
+
+    def set_deliveries(self, deliveries):
+        self.__deliveries.append(deliveries)

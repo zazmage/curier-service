@@ -13,8 +13,8 @@ def load_vehicles():
                     float(i.get("max_speed_in_kmh")),
                     float(i.get("max_load_in_kg")),
                     float(i.get("actual_load_in_kg")),
-                    i.get("in_transit"),
-                    float(i.get("available_in")),
+                    float(i.get("available_in_h")),
+                    i.get("deliveries"),
                 )
                 for i in vehicles
             ]
@@ -34,8 +34,8 @@ def query_veicles_list(vehicle_id_list):
                     float(i.get("max_speed_in_kmh")),
                     float(i.get("max_load_in_kg")),
                     float(i.get("actual_load_in_kg")),
-                    i.get("in_transit"),
-                    float(i.get("available_in")),
+                    float(i.get("available_in_h")),
+                    i.get("deliveries"),
                 )
                 for i in vehicles
             ]
@@ -60,8 +60,8 @@ def query_vehicle(vehicle_id):
                     float(i.get("max_speed_in_kmh")),
                     float(i.get("max_load_in_kg")),
                     float(i.get("actual_load_in_kg")),
-                    i.get("in_transit"),
-                    float(i.get("available_in")),
+                    float(i.get("available_in_h")),
+                    i.get("deliveries"),
                 )
                 for i in vehicles
             ]
@@ -75,7 +75,7 @@ def query_vehicle(vehicle_id):
 
 
 def update_vehicle_status(
-    vehicle_id, actual_load_in_kg, in_transit, available_in
+    vehicle_id, actual_load_in_kg, full_load, available_in_h, deliveries
 ):
     try:
         with open("./databases/vehicles.json", "r+") as file:
@@ -91,8 +91,8 @@ def update_vehicle_status(
                 "max_speed_in_kmh": vehicle.get("vehicle_id"),
                 "max_load_in_kg": vehicle.get("vehicle_id"),
                 "actual_load_in_kg": actual_load_in_kg,
-                "in_transit": in_transit,
-                "available_in": available_in,
+                "available_in_h": available_in_h,
+                "deliveries": deliveries,
             }
             file.seek(0)
             json.dump(vehicles, file, indent=2)

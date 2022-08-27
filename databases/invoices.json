@@ -68,5 +68,22 @@
       }
     ],
     "total_order_cost": 1700.0
+  },
+  {
+    "invoice_code": "INV6",
+    "order_code": "ORD1",
+    "invoice_info": [
+      {
+        "delivery_cost": 175.0,
+        "discount": 0.0,
+        "total_cost": 175.0
+      },
+      {
+        "delivery_cost": 275.0,
+        "discount": 0.0,
+        "total_cost": 275.0
+      }
+    ],
+    "total_order_cost": 450.0
   }
 ]

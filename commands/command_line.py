@@ -14,7 +14,7 @@ def welcome_menu():
     print("5) Show vehicles")
     print("6) Create order")
     print("7) Create invoice")
-    print("8) Update vehicle status")
+    print("8) Assign deliveries")
     print("0) Exit")
 
 
