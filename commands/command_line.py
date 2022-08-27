@@ -11,8 +11,10 @@ def welcome_menu():
     print("2) Show packages")
     print("3) Show offers")
     print("4) Show invoices")
-    print("5) Create order")
-    print("6) Create invoice")
+    print("5) Show vehicles")
+    print("6) Create order")
+    print("7) Create invoice")
+    print("8) Update vehicle status")
     print("0) Exit")
 
 

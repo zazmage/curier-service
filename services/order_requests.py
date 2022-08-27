@@ -1,5 +1,4 @@
 import json
-from classes.delivery_info import Delivery_info
 
 from classes.order import Order
 from services.offer_requests import query_offer
@@ -11,25 +10,21 @@ def load_orders():
     try:
         with open("./databases/orders.json", "r") as file:
             orders = json.loads(file.read())
-            orders_list = []
-            for i in orders:
-
-                delivery_info = []
-                for j in i.get("delivery_info"):
-                    delivery_info.append(
-                        Delivery_info(
-                            query_package(j.get("pkg_id")),
-                            j.get("distance_in_km"),
-                            query_offer(j.get("offer_code")),
-                        )
-                    )
-                orders_list.append(
-                    Order(
-                        i.get("order_code"),
-                        i.get("no_of_packges"),
-                        delivery_info,
-                    )
+            orders_list = [
+                Order(
+                    i.get("order_code"),
+                    int(i.get("no_of_packges")),
+                    [
+                        {
+                            "package": query_package(j.get("pkg_id")),
+                            "distance_in_km": float(j.get("distance_in_km")),
+                            "offer": query_offer(j.get("offer_code")),
+                        }
+                        for j in i.get("delivery_info")
+                    ],
                 )
+                for i in orders
+            ]
             return orders_list
     except:
         return []
@@ -39,24 +34,21 @@ def query_order(order_code):
     try:
         with open("./databases/orders.json", "r") as file:
             orders = json.loads(file.read())
-            orders_list = []
-            for i in orders:
-                delivery_info = []
-                for j in i.get("delivery_info"):
-                    delivery_info.append(
-                        Delivery_info(
-                            query_package(j.get("pkg_id")),
-                            j.get("distance_in_km"),
-                            query_offer(j.get("offer_code")),
-                        )
-                    )
-                orders_list.append(
-                    Order(
-                        i.get("order_code"),
-                        i.get("no_of_packges"),
-                        delivery_info,
-                    )
+            orders_list = [
+                Order(
+                    i.get("order_code"),
+                    int(i.get("no_of_packges")),
+                    [
+                        {
+                            "package": query_package(j.get("pkg_id")),
+                            "distance_in_km": float(j.get("distance_in_km")),
+                            "offer": query_offer(j.get("offer_code")),
+                        }
+                        for j in i.get("delivery_info")
+                    ],
                 )
+                for i in orders
+            ]
             order = next(
                 (i for i in orders_list if i.get_order_code() == order_code),
                 None,

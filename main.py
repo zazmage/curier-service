@@ -8,10 +8,12 @@ from commands.invoice_cmd import create_invoice, show_invoices
 from commands.offer_cmd import show_offers
 from commands.order_cmd import create_order, show_orders
 from commands.package_cmd import show_packages
+from commands.vehicle_cmd import show_vehicles
 from services.invoice_requests import load_invoices
 from services.offer_requests import load_offers
 from services.order_requests import load_orders
 from services.package_requests import load_packages
+from services.vehicle_requests import load_vehicles
 
 if __name__ == "__main__":
     app_running = True
@@ -19,6 +21,7 @@ if __name__ == "__main__":
     packages = load_packages()
     offers = load_offers()
     invoices = load_invoices()
+    vehicles = load_vehicles()
 
     while app_running:
         welcome_menu()
@@ -32,11 +35,16 @@ if __name__ == "__main__":
         elif selection == 4:
             show_invoices(invoices)
         elif selection == 5:
+            show_vehicles(vehicles)
+        elif selection == 6:
             create_order()
             orders = load_orders()
-        elif selection == 6:
+        elif selection == 7:
             create_invoice()
             invoices = load_invoices()
+        elif selection == 8:
+            # update_vehicle_status()
+            vehicles = load_vehicles()
         elif selection == 0:
             app_running = exit_application()
         else:

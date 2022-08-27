@@ -5,12 +5,12 @@
     "delivery_info": [
       {
         "pkg_id": "PKG1",
-        "distance_in_km": 5,
+        "distance_in_km": 5.0,
         "offer_code": "OFR001"
       },
       {
         "pkg_id": "PKG2",
-        "distance_in_km": 5,
+        "distance_in_km": 5.0,
         "offer_code": "OFR002"
       }
     ]
@@ -21,17 +21,17 @@
     "delivery_info": [
       {
         "pkg_id": "PKG1",
-        "distance_in_km": 5,
+        "distance_in_km": 5.0,
         "offer_code": "OFR001"
       },
       {
         "pkg_id": "PKG1",
-        "distance_in_km": 5,
+        "distance_in_km": 5.0,
         "offer_code": "OFR001"
       },
       {
         "pkg_id": "PKG1",
-        "distance_in_km": 5,
+        "distance_in_km": 5.0,
         "offer_code": "OFR001"
       }
     ]
@@ -42,7 +42,7 @@
     "delivery_info": [
       {
         "pkg_id": "PKG3",
-        "distance_in_km": 100,
+        "distance_in_km": 100.0,
         "offer_code": "OFR003"
       }
     ]
@@ -53,7 +53,7 @@
     "delivery_info": [
       {
         "pkg_id": "PKG1",
-        "distance_in_km": "100",
+        "distance_in_km": 100.0,
         "offer_code": "OFR001"
       }
     ]
@@ -64,17 +64,17 @@
     "delivery_info": [
       {
         "pkg_id": "PKG1",
-        "distance_in_km": "100",
+        "distance_in_km": 100.0,
         "offer_code": "OFR001"
       },
       {
         "pkg_id": "PKG2",
-        "distance_in_km": "200",
+        "distance_in_km": 200.0,
         "offer_code": "OFR002"
       },
       {
         "pkg_id": "PKG3",
-        "distance_in_km": "300",
+        "distance_in_km": 300.0,
         "offer_code": "OFR003"
       }
     ]
@@ -85,13 +85,35 @@
     "delivery_info": [
       {
         "pkg_id": "PKG2",
-        "distance_in_km": "100",
+        "distance_in_km": 100.0,
         "offer_code": "OFR002"
       },
       {
         "pkg_id": "PKG2",
-        "distance_in_km": "200",
+        "distance_in_km": 200.0,
         "offer_code": "OFR003"
+      }
+    ]
+  },
+  {
+    "order_code": "ORD7",
+    "no_of_packges": 1,
+    "delivery_info": [
+      {
+        "pkg_id": "PKG3",
+        "distance_in_km": 300.0,
+        "offer_code": "OFR003"
+      }
+    ]
+  },
+  {
+    "order_code": "ORD8",
+    "no_of_packges": 1,
+    "delivery_info": [
+      {
+        "pkg_id": "PKG2",
+        "distance_in_km": "200",
+        "offer_code": "OFR002"
       }
     ]
   }

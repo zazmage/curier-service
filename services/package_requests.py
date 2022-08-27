@@ -46,8 +46,8 @@ def query_package(pkg_id):
             packages_list = [
                 Package(
                     i.get("pkg_id"),
-                    i.get("base_delivery_cost"),
-                    i.get("pkg_weight_in_kg"),
+                    float(i.get("base_delivery_cost")),
+                    float(i.get("pkg_weight_in_kg")),
                 )
                 for i in packages
             ]

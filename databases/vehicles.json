@@ -1,0 +1,26 @@
+[
+  {
+    "vehicle_id": "VHC1",
+    "max_speed_in_kmh": 75,
+    "max_load_in_kg": 200,
+    "actual_load_in_kg": 0,
+    "in_transit": false,
+    "available_in": 0
+  },
+  {
+    "vehicle_id": "VHC2",
+    "max_speed_in_kmh": 75,
+    "max_load_in_kg": 200,
+    "actual_load_in_kg": 0,
+    "in_transit": false,
+    "available_in": 0
+  },
+  {
+    "vehicle_id": "VHC3",
+    "max_speed_in_kmh": 75,
+    "max_load_in_kg": 200,
+    "actual_load_in_kg": 0,
+    "in_transit": false,
+    "available_in": 0
+  }
+]

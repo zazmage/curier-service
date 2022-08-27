@@ -16,13 +16,13 @@ def show_orders(orders):
         for j in i.get_delivery_info():
             print(
                 "---> Package ID: ",
-                j.get_package().get_pkg_id(),
+                j.get("package").get_pkg_id(),
             )
             print(
                 "---> Distance in km: ",
-                j.get_distance_in_km(),
+                j.get("distance_in_km"),
             )
-            print("---> Offer code: ", j.get_offer().get_offer_code())
+            print("---> Offer code: ", j.get("offer").get_offer_code())
             print("-")
         mid_sep()
     separator()

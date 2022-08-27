@@ -14,9 +14,9 @@ def load_invoices():
                     i.get("order_code"),
                     [
                         {
-                            "delivery_cost": j.get("delivery_cost"),
-                            "discount": j.get("discount"),
-                            "total_cost": j.get("total_cost"),
+                            "delivery_cost": float(j.get("delivery_cost")),
+                            "discount": float(j.get("discount")),
+                            "total_cost": float(j.get("total_cost")),
                         }
                         for j in i.get("invoice_info")
                     ],
@@ -39,9 +39,9 @@ def query_invoices_list(invoice_code_list):
                     i.get("order_code"),
                     [
                         {
-                            "delivery_cost": j.get("delivery_cost"),
-                            "discount": j.get("discount"),
-                            "total_cost": j.get("total_cost"),
+                            "delivery_cost": float(j.get("delivery_cost")),
+                            "discount": float(j.get("discount")),
+                            "total_cost": float(j.get("total_cost")),
                         }
                         for j in i.get("invoice_info")
                     ],
@@ -69,9 +69,9 @@ def query_invoice(invoice_code):
                     i.get("order_code"),
                     [
                         {
-                            "delivery_cost": j.get("delivery_cost"),
-                            "discount": j.get("discount"),
-                            "total_cost": j.get("total_cost"),
+                            "delivery_cost": float(j.get("delivery_cost")),
+                            "discount": float(j.get("discount")),
+                            "total_cost": float(j.get("total_cost")),
                         }
                         for j in i.get("invoice_info")
                     ],

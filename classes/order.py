@@ -9,7 +9,12 @@ class Order:
             "order_code": self.__order_code,
             "no_of_packges": self.__no_of_packges,
             "delivery_info": [
-                i.get_delivery_info_dict() for i in self.__delivery_info
+                {
+                    "pkg_id": i.get("package").get_pkg_id(),
+                    "distance_in_km": i.get("distance_in_km"),
+                    "offer_code": i.get("offer").get_offer_code(),
+                }
+                for i in self.__delivery_info
             ],
         }
 
