@@ -75,7 +75,7 @@ def query_vehicle(vehicle_id):
 
 
 def update_vehicle_status(
-    vehicle_id, actual_load_in_kg, full_load, available_in_h, deliveries
+    vehicle_id, actual_load_in_kg, available_in_h, deliveries
 ):
     try:
         with open("./databases/vehicles.json", "r+") as file:

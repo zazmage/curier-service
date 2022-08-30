@@ -1,8 +1,6 @@
 import json
 
 from classes.delivery import Delivery
-from services.offer_requests import query_offer
-from services.package_requests import query_package
 from utils.utils import new_code
 
 

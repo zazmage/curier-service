@@ -7,7 +7,6 @@ from commands.command_line import (
     separator,
 )
 from services.order_requests import save_order
-from services.package_requests import load_packages
 
 
 def show_orders(orders):
