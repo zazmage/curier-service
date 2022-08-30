@@ -5,26 +5,36 @@ def guarantee_int(message):
     return int(integer_input)
 
 
+def guarantee_float(message):
+    float_input = input(message)
+    while not float_input.isfloat() and float(float_input) > 0:
+        float_input = input("Please insert a positive number: ")
+    return int(float_input)
+
+
 def welcome_menu():
-    print("Courier Service")
+    print("###################")
+    print("# Courier Service #")
+    print("###################\n")
     print("1) Show orders")
     print("2) Show packages")
     print("3) Show offers")
     print("4) Show invoices")
     print("5) Show vehicles")
-    print("6) Create order")
-    print("7) Create invoice")
-    print("8) Assign deliveries")
+    print("6) Show deliveries")
+    print("7) Create order")
+    print("8) Create invoice")
+    print("9) Assign deliveries")
     print("0) Exit")
 
 
 def exit_application():
-    print("Exiting the application...")
+    print("\nExiting the application...\n")
     return False
 
 
 def input_selection():
-    return guarantee_int("Type the number of the selected option: ")
+    return guarantee_int("\nType the number of the selected option: ")
 
 
 def expect_input():
@@ -33,7 +43,8 @@ def expect_input():
 
 
 def valid_option():
-    print("Please select a valid option...")
+    print("\nPlease select a valid option...\n")
+    expect_input()
 
 
 def separator():
@@ -42,3 +53,7 @@ def separator():
 
 def mid_sep():
     print("-" * 20 + "\n" + "-" * 20)
+
+
+def no_results():
+    print("No results...")

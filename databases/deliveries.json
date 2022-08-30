@@ -1,0 +1,147 @@
+[
+  {
+    "delivery_code": "DLY1",
+    "vehicle_id": "VHC3",
+    "available_in_h": 13.33,
+    "deliveries": [
+      {
+        "travel_time_in_h": 5.33,
+        "delivery_info": [
+          {
+            "order_code": "ORD6",
+            "pkg_id": "PKG2",
+            "pkg_weight_in_kg": 150,
+            "distance_in_km": 200.0
+          },
+          {
+            "order_code": "ORD2",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ]
+      },
+      {
+        "travel_time_in_h": 5.33,
+        "delivery_info": [
+          {
+            "order_code": "ORD6",
+            "pkg_id": "PKG2",
+            "pkg_weight_in_kg": 150,
+            "distance_in_km": 200.0
+          },
+          {
+            "order_code": "ORD2",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ]
+      },
+      {
+        "travel_time_in_h": 2.67,
+        "delivery_info": [
+          {
+            "order_code": "ORD5",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "delivery_code": "DLY2",
+    "vehicle_id": "VHC1",
+    "available_in_h": 13.33,
+    "deliveries": [
+      {
+        "travel_time_in_h": 5.33,
+        "delivery_info": [
+          {
+            "order_code": "ORD1",
+            "pkg_id": "PKG2",
+            "pkg_weight_in_kg": 150,
+            "distance_in_km": 200.0
+          },
+          {
+            "order_code": "ORD1",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ]
+      },
+      {
+        "travel_time_in_h": 8.0,
+        "delivery_info": [
+          {
+            "order_code": "ORD3",
+            "pkg_id": "PKG3",
+            "pkg_weight_in_kg": 100,
+            "distance_in_km": 300.0
+          },
+          {
+            "order_code": "ORD7",
+            "pkg_id": "PKG3",
+            "pkg_weight_in_kg": 100,
+            "distance_in_km": 300.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "delivery_code": "DLY3",
+    "vehicle_id": "VHC2",
+    "available_in_h": 18.66,
+    "deliveries": [
+      {
+        "delivery_info": [
+          {
+            "order_code": "ORD5",
+            "pkg_id": "PKG2",
+            "pkg_weight_in_kg": 150,
+            "distance_in_km": 200.0
+          },
+          {
+            "order_code": "ORD2",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ],
+        "travel_time_in_h": 5.33
+      },
+      {
+        "delivery_info": [
+          {
+            "order_code": "ORD8",
+            "pkg_id": "PKG2",
+            "pkg_weight_in_kg": 150,
+            "distance_in_km": 200.0
+          },
+          {
+            "order_code": "ORD4",
+            "pkg_id": "PKG1",
+            "pkg_weight_in_kg": 50,
+            "distance_in_km": 100.0
+          }
+        ],
+        "travel_time_in_h": 5.33
+      },
+      {
+        "delivery_info": [
+          {
+            "order_code": "ORD5",
+            "pkg_id": "PKG3",
+            "pkg_weight_in_kg": 100,
+            "distance_in_km": 300.0
+          }
+        ],
+        "travel_time_in_h": 8.0
+      }
+    ]
+  }
+]

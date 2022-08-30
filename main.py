@@ -4,12 +4,13 @@ from commands.command_line import (
     valid_option,
     welcome_menu,
 )
-from commands.delivery_cmd import assign_deliveries, create_delivery_queue
+from commands.delivery_cmd import assign_deliveries, show_deliveries
 from commands.invoice_cmd import create_invoice, show_invoices
 from commands.offer_cmd import show_offers
 from commands.order_cmd import create_order, show_orders
 from commands.package_cmd import show_packages
 from commands.vehicle_cmd import show_vehicles
+from services.delivery_requests import load_delieveries
 from services.invoice_requests import load_invoices
 from services.offer_requests import load_offers
 from services.order_requests import load_orders
@@ -23,6 +24,7 @@ if __name__ == "__main__":
     offers = load_offers()
     invoices = load_invoices()
     vehicles = load_vehicles()
+    deliveries = load_delieveries()
 
     while app_running:
         welcome_menu()
@@ -38,12 +40,14 @@ if __name__ == "__main__":
         elif selection == 5:
             show_vehicles(vehicles)
         elif selection == 6:
-            create_order()
-            orders = load_orders()
+            show_deliveries(deliveries)
         elif selection == 7:
-            create_invoice()
-            invoices = load_invoices()
+            create_order(packages, offers)
+            orders = load_orders()
         elif selection == 8:
+            create_invoice(orders)
+            invoices = load_invoices()
+        elif selection == 9:
             assign_deliveries(orders, vehicles)
         elif selection == 0:
             app_running = exit_application()

@@ -85,5 +85,27 @@
       }
     ],
     "total_order_cost": 450.0
+  },
+  {
+    "invoice_code": "INV7",
+    "order_code": "ORD2",
+    "invoice_info": [
+      {
+        "delivery_cost": 1100.0,
+        "discount": 0.0,
+        "total_cost": 1100.0
+      },
+      {
+        "delivery_cost": 1100.0,
+        "discount": 0.0,
+        "total_cost": 1100.0
+      },
+      {
+        "delivery_cost": 1100.0,
+        "discount": 0.0,
+        "total_cost": 1100.0
+      }
+    ],
+    "total_order_cost": 3300.0
   }
 ]

@@ -1,4 +1,4 @@
-from commands.command_line import expect_input, mid_sep, separator
+from commands.command_line import expect_input, mid_sep, no_results, separator
 from services.invoice_requests import save_invoice
 from services.order_requests import query_order
 
@@ -17,30 +17,37 @@ def show_invoice(invoice_info, total_order_cost):
 
 def show_invoices(invoices):
     separator()
-    for i in invoices:
-        print(f"Invoice code: {i.get_invoice_code()}")
-        print(f"Order code: {i.get_order_code()}")
-        print("Invoice info: ")
-        for j in i.get_invoice_info():
-            print(
-                "---> Delivery cost: ",
-                j.get("delivery_cost"),
-            )
-            print(
-                "---> Discount: ",
-                j.get("discount"),
-            )
-            print(f"---> Total cost: {j.get('total_cost')}$")
-            print("-" * 20)
-        print(f"Total order cost: {i.get_total_order_cost()}$")
-        mid_sep()
-
-    separator()
+    if invoices:
+        for i in invoices:
+            print(f"Invoice code: {i.get_invoice_code()}")
+            print(f"Order code: {i.get_order_code()}")
+            print("Invoice info: ")
+            for j in i.get_invoice_info():
+                print(
+                    "---> Delivery cost: ",
+                    j.get("delivery_cost"),
+                )
+                print(
+                    "---> Discount: ",
+                    j.get("discount"),
+                )
+                print(f"---> Total cost: {j.get('total_cost')}$")
+                print("-" * 20)
+            print(f"Total order cost: {i.get_total_order_cost()}$")
+            mid_sep()
+        separator()
+    else:
+        no_results()
     expect_input()
 
 
-def create_invoice():
+def create_invoice(orders):
+    order_code_list = [i.get_order_code() for i in orders]
     order_code = input("Order code: ")
+    while order_code not in order_code_list:
+        order_code = input(
+            "The order was not found, please enter a valid code: "
+        )
     order = query_order(order_code)
     delivery_info = order.get_delivery_info()
     invoice_info = []
